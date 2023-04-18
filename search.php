@@ -1,34 +1,43 @@
+<!-- Hämtar headern från header.php -->
 <?php get_header(); ?>
 <main>
     <section>
         <div class="container">
             <div class="row">
                 <div id="primary" class="col-xs-12 col-md-8 col-md-offset-2">
+                    <!-- Hämtar sökordet från inputfältet -->
                     <h1>Sökresultat för: <?php echo get_search_query(); ?> </h1>
                     <div class="searchform-wrap">
                         <form id="searchform" class="searchform">
+                            <!-- Hämtar sökformuläret -->
                             <?php get_search_form(); ?>
                         </form>
                     </div>
                     <?php
+                    // Ser om det finns inlägg i databasen och hämtar dessa
                     if (have_posts()) :
                         while (have_posts()) : the_post(); ?>
                             <article>
+                                <!-- Hämtar bilden från inlägget -->
                                 <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="">
 
                                 <h2 class="title">
+                                    <!-- Hämtar permalänken och titeln från inlägget -->
                                     <a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a>
                                 </h2>
                                 <ul class="meta">
                                     <li>
+                                        <!-- Hämtar datumet som inlägget skrevs -->
                                         <i class="fa fa-calendar"></i> <?php echo get_the_date(); ?>
                                     </li>
                                     <li>
+                                        <!-- Hämtar länken till författaren och namnet på författaren -->
                                         <i class="fa fa-user"></i> <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>"> <?php the_author(); ?> </a>
                                     </li>
                                     <li>
                                         <i class="fa fa-tag"></i>
                                         <?php
+                                        // Hämtar inläggets alla tillhörande kategorier
                                         $categories = get_the_category();
                                         if (!empty($categories)) {
                                             $i = 0;
@@ -43,6 +52,7 @@
                                         ?>
                                     </li>
                                 </ul>
+                                <!-- hämtar inläggsinnehållet -->
                                 <?php the_content(); ?>
                             </article>
                     <?php
@@ -52,6 +62,7 @@
                     endif;
                     ?>
                     <nav class="navigation pagination">
+                        <!-- Hämtar pageination funktionen -->
                         <?php echo paginate_links(); ?>
                 </div>
 
@@ -59,4 +70,5 @@
             </div>
     </section>
 </main>
+<!-- hämtar footern från footer.php -->
 <?php get_footer(); ?>

@@ -3,6 +3,7 @@
 
 <head>
     <title>Temautveckling</title>
+    <!-- ytterligare information till sidan ska fungera för Wordpress -->
     <?php wp_head(); ?>
 </head>
 
@@ -12,17 +13,17 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-8 col-sm-6">
+                        <!-- Länkar till "home" -->
                         <a class="logo" href="<?php echo get_home_url(); ?>">Labb 1</a>
                     </div>
-                    
                     <div class="col-sm-6 hidden-xs">
-                    
                         <form id="searchform" class="searchform">
-                        <div>
-                        <?php get_search_form(); ?>
+                            <div>
+                                <!-- Hämtar sök formuläret -->
+                                <?php get_search_form(); ?>
                             </div>
                         </form>
-                        
+
                     </div>
                     <div class="col-xs-4 text-right visible-xs">
                         <div class="mobile-menu-wrap">
@@ -34,19 +35,18 @@
             </div>
         </header>
         <div class="mobile-search">
-			<form id="searchform" class="searchform">
-				<div>
-                <?php get_search_form(); ?>
-				</div>
-			</form>
-		</div>
+            <form id="searchform" class="searchform">
+                <div>
+                    <!-- Hämtar sök formuläret -->
+                    <?php get_search_form(); ?>
+                </div>
+            </form>
+        </div>
         <nav id="nav">
             <div class="container">
                 <div class="row">
-
-                    <?php
-                    wp_nav_menu(array('menu' => 'huvudmeny',));
-                    ?>
+                    <!-- Hämtar huvudmenyn från menu -->
+                    <?php wp_nav_menu(array('menu' => 'huvudmeny',)); ?>
                 </div>
             </div>
         </nav>

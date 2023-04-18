@@ -6,55 +6,58 @@ add_theme_support( 'post-thumbnails' );
 
 // Lägg till stöd för menyer
 add_theme_support( 'menus' );
+
 // Lägg till stöd för widgets
 add_theme_support( 'widgets' );
 
+// Lägger till alla widgets
 register_sidebar([
     'name' => 'arkiv',
-    'description' => 'the first one test',
+    'description' => 'arkiv',
     'id' => 'arkiv',
     "before_widget" => "<li>"
 ]);
 
 register_sidebar([
     'name' => 'serch',
-    'description' => 'the second one test',
+    'description' => 'search',
     'id' => 'serch',
     "before_widget" => ""
 ]);
 register_sidebar([
     'name' => 'serchheader',
-    'description' => 'the theerd one test',
+    'description' => 'serchheader',
     'id' => 'serchheader',
     "before_widget" => ""
 ]);
 
 register_sidebar([
     'name' => 'social',
-    'description' => 'the fourth one test',
+    'description' => 'social',
     'id' => 'social',
     "before_widget" => ""
 ]);
 
 register_sidebar([
     'name' => 'contact',
-    'description' => 'the fourth one test',
+    'description' => 'contact',
     'id' => 'contact',
     "before_widget" => ""
 ]);
 
 register_sidebar([
     'name' => 'about',
-    'description' => 'the fourth one test',
+    'description' => 'about',
     'id' => 'about',
     "before_widget" => ""
 ]);
-// Kör en function i head
-    /*add_action("wp_head", "my_function");
-    function my_function(){
-        echo "Wiiiiii";
-    } */
 
+register_sidebar([
+    'name' => 'copywrite',
+    'description' => 'copywrite',
+    'id' => 'copywrite',
+    "before_widget" => ""
+]);
 
 // кöа in
 function my_scripts() {
@@ -79,7 +82,7 @@ function my_scripts() {
     wp_register_script('script', get_template_directory_uri() . '/js/script.js');
     wp_enqueue_script('script');
 }
-
+// Laddar in stilmallar och JavaScript-filer 
 add_action('wp_enqueue_scripts', 'my_scripts');
 
 

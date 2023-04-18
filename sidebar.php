@@ -3,10 +3,8 @@
 						<ul>
 							<li>
 								<form id="searchform" class="searchform">
-									
 										<h2>Sök efter:</h2>
 									<?php get_search_form(); ?>
-									
 								</form>
 							</li>
 						</ul>
